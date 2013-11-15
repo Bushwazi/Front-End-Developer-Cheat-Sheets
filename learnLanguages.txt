@@ -1,0 +1,16 @@
+
+Even if you’re pretty good about following The Pragmatic Programmer‘s [http://bootstrappist.us2.list-manage.com/track/click?u=f135d8629d7117cb1619e9689&id=ea9c43a4df&e=6e4951a504] advice to learn a new programming language, you may find yourself needing to pick up a new language in a hurry. It is possible to learn a new programming language fairly quickly, especially if you’ve already got a good grounding in a couple of different languages and you’re able to devote your full attention to the project.
+
+Read Seven Languages in Seven Weeks: Even if the language that you’re trying to learn isn’t one of the seven taught in this book (Clojure, Haskell, Io, Prolog, Scala, Erlang and Ruby), the book gives you a good grounding in how to compare languages and learn about their differences. http://bootstrappist.us2.list-manage.com/track/click?u=f135d8629d7117cb1619e9689&id=23255a53a3&e=6e4951a504
+
+Choose your reference material carefully: Pick just a few books and some related materials to read and base your experiences on. Different instructors have different workflows, so take some care in making your choices.
+http://bootstrappist.us2.list-manage1.com/track/click?u=f135d8629d7117cb1619e9689&id=f81f89f0d6&e=6e4951a504
+
+Solve a standard set of problems: Go through the same exercises with each new language you learn can help you figure out where potential problems are quickly. Provided you’re comfortable with some math, the Project Euler problems are a good starting point.
+http://bootstrappist.us2.list-manage.com/track/click?u=f135d8629d7117cb1619e9689&id=23a9852971&e=6e4951a504
+
+Practice a little: You don’t have to be immediately proficient in a new programming language, but you need to work on learning it until you can function a respectable amount. Block out time to practice, preferably before you dive head first into a major project.
+http://bootstrappist.us2.list-manage1.com/track/click?u=f135d8629d7117cb1619e9689&id=59ee069ec5&e=6e4951a504
+
+Do some real world work: Whenever possible, put yourself in a position where there are some stakes to you actually being able to code in that new language. Take a job or a freelance project that has money on the line, based on your ability to code.
+http://bootstrappist.us2.list-manage.com/track/click?u=f135d8629d7117cb1619e9689&id=77494d463a&e=6e4951a504

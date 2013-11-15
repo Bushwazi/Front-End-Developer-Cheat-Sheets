@@ -1,0 +1,220 @@
+Take Control of the Mac Command Line with Terminal
+http://www.takecontrolbooks.com/command-line
+
+
+Tricks: {
+	echo $0 ==> find out which shell is currently running
+	pwd ==> current directory
+	ls
+	ls -l ==> (the -l flag denotes "long format")
+	!! ==> will repeat a command
+	Control+C or Command+. ==> will cancel a command
+	cd - ==> go back to the directory you came from
+	cd ~ ==> got home (~/Sites...)
+	clear ==> will clear the screen derp
+	exit ==> the correct way to end a session
+	date ==> returns the date!
+}
+
+
+Types of Shells: {
+	csh: the C shell, named for similarities to the C programming language (Unix folks love names with puns, too, as you'll see)
+	tcsh: the Tenex C shell, which adds features to csh
+	ksh: the Korn shell, a variant of sh (with some csh features) developed by David Korn
+	bash: the Bourne-again shell (yet another superset of sh)
+	zsh: the Z shell, an advanced shell named after Yale professor Zhong Shao that incorporates features from tcsh, ksh, and bash, plus other capabilities
+}
+Commands, Arguments, Flags: {
+	command argument -flag
+	git commit -am "Lorem Ipsum"
+}
+Paths: {
+	Spaces in paths: {
+		==> use quotes to wrap --> cd "My Folder"
+		==> escape the space --> cd My\ Folder
+	}
+	WildCards: {
+		* ==> "zero or more characters"
+		? ==> "any single character"
+	}
+}
+Find a file: {
+	find where -name "*my file*"
+		where could be any of the same commands as cd
+			current directory, use . ==> find . -name "*keychain*"
+			search entire disk, use / ==> find / -name "*keychain*"
+			make search case insensitive ==> find ~ -iname "*user data*"
+		* use sudo when find returns "permission denied"
+}
+Locate a file : {
+	to locate a file called keychain ==> locate keychain
+	case insensitive ==> locate -i keychain
+	* if locate returns "no db exists", create or update the db ==> /usr/libexec/locate.updatedb
+}
+View a text file: {
+	more/less: {
+		* same program, one starts top, other bottom
+		use spacebar or B to move
+		quit ==> press Q
+		more ~/Google\ Drive/Book\ Notes/TakeControlOfTheMacCommandLine.txt
+		less ~/Google\ Drive/Book\ Notes/TakeControlOfTheMacCommandLine.txt
+	}
+	show whole file ==> cat ~/Google\ Drive/Book\ Notes/TakeControlOfTheMacCommandLine.txt
+	show last 10 lines ==> tail ~/Google\ Drive/Book\ Notes/TakeControlOfTheMacCommandLine.txt
+}
+Get HELP!: {
+	manual command
+	man ls
+	man cp
+	man locate
+	* lots of resources on the web
+	exit using Q
+}
+Working with files: {
+	create a file: {
+		touch filename
+		* if using spaces, escape that fucker
+	}
+	create a directory: {
+		mkdir apples
+	}
+	copy a file: {
+		copy filename destination
+			cp file1 ~/Desktop
+		multiple files
+			cp file1 file2 file3 /Users/Shared
+		copy a directory
+			** must use the -r flag (recursion)
+			cp -r apples ~/Documents
+			** don't put slashes at the end of source directory because is will copy CONTENTS of the folder and not the folder
+	}
+	duplicate a file: {
+		copy original duplicate
+			cp file1 file2
+		copy original duplicate to new location
+			copy file1 location/file2
+	}
+	** AVOID OVERWRITING by adding the -i flag
+		cp -i file1 Documents
+	move a file: {
+		move filename destination
+		mv file1 Documents
+		* add the -i flag to avoid overwriting
+	}
+	rename a file: {
+		in same folder ==> move filename newfilename
+		to different folder ==> move filename destination/newfilename
+		* add the -i flag to avoid overwriting
+	}
+	delete a file: {
+		remove filename
+		rm file1
+		rm file1 file2 file3
+		fm file*
+		* permanent delete
+	}
+	delete a directory: {
+		rmdir apples
+		rmdir apples oranges
+		rmdir apple*
+		* the above will only work on empty directories, for folders with content, add the recursive flag
+		rmdir -r apples
+		
+	}
+}
+Run a program or script: {
+	PATH: {
+		When all caps, refers to a special variable your shell uses that contains a list of all the default locations in which a shell can look for programs
+	}
+	shebang: {
+		example: #!/bin/sh
+		a marker indicating that what follows it is the path to the interpreter
+		more
+		sh ~/Documents/my-shell-script.sh
+		perl ~/Documents/my-perl-script.pl
+		python ~/Documents/my-python-script.py
+		ruby ~/Documents/my-ruby-script.rb
+	}
+	run a program in the background: {
+		To run a program in the background, you simply put a space and an ampersand (&) after the program name (and any flags or arguments)
+		zip -r archive.zip apples &
+	}
+	see what programs are running: {		
+		top
+			* like activity monitor
+			use man top to learn more
+			type Q to quit
+		ps
+			aka process status, static snapshot of the processes running at any moment
+	}
+	stop a program: {
+		ask politely ==> control + c
+		kill humanely ==> kill PID or killall Program Name
+			* you have to use top, ps or activity monitor to find the PID
+			* be aware of program names with spaces
+		kill kill kill ==> by adding the 9 flag, you kill without prejudice
+			kill -9 PID * must use PID
+	}
+	EDIT A TEXT FILE: {
+		vi ==> the most basic and painful
+		emacs ==> better than vi...
+		nano ==> is the winner!
+			can copy & paste
+			there is no undo
+			save --> control + O aka WriteOut
+			quit --> control + x and follow prompts
+			find --> control + w aka Where Is
+			help --> control + g
+	}
+	Create your own shell script: {
+		1: start with an empty file 	--> touch test.sh
+		2: insert the shebang		--> #!/bin/bash
+		3: add commands			--> 
+		4: close & save			-->
+		5: enable execute permission	--> chmod U+X test.sh
+		6: run the script		--> ./test.sh
+		** for more on Shell Scripting: http://developer.apple.com/documentation/OpenSource/Conceptual/ShellScripting/
+	}
+	Customize Your Profile: {
+		located in multiple places
+			/etc/profile --> system wide profile
+			then it works in this order
+			~/.bash_profile --> because this is first, you should make changes here
+			~/.bash_login
+			~/.profile
+		nano ~/.bash_profile --> to open file to update
+			create aliases: basic shortcuts for commands
+				alias dt="date" --> dt will now run the date command
+				alias ls="ls -l" --> ls will now show the long format * added to my profile
+				alias copy="cp -i" * added to my profile
+				alias move="mv -i" * added to my profile
+		Modify your path: {
+			To add a directory to your PATH, put this in your .bash_profile:
+				export PATH=$PATH:/your/path/here
+		Change your prompt: {
+			add PS1="NEW PROMPT"
+			some common variable:
+				\u: Your short user name
+				\h: Your computer's name
+				\s: The name of the current shell
+				\w: The current directory
+				\d: The current date, in the format "Mon Feb 16"
+				\@: The current time, in 12-hour format with AM/PM
+		}
+	}
+}
+Interact with "the real world": {
+	==> if you type a command + @ + spacebar and then drag a folder into terminal, it will run that command
+		ls -l@ [drag here]
+	==> open the current directory in finder (when in terminal)
+		open .
+	==> you can use Finder instead of terminal to open hidden files
+		if you know where it is, use Go > Go To Folder and type the path
+		* you can use tab completion here!
+	==> Open an app, use the -a flag for application, it will look for the app no matter where it lives
+		open -a Safari
+	==> Open a file in an app
+		open -a Adobe\ Photoshop\ Elements flowers.jpeg
+		open -a "Adobe Photoshop Elements" flowers.jpeg
+}
+PAGE 54

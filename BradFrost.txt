@@ -1,0 +1,129 @@
+BradFrost
+
+While I was stuck on the train for an extra hour this morning, I parused a 700 slide pdf from a Brad Frost speech, here are my notes. A lot of it is just links to other things to read.
+
+I think it was this talk: http://lanyrd.com/2013/smashing-workshop-with-brad-frost-everything-you-2/
+I have the pdf of you want it too. It's 237Mb so I didn' t attach it
+
+===>
+For layout, use max-width on shells
+What is detector? detector.dmolsen.com http://detector.dmolsen.com/
+github.Southstreet https://github.com/filamentgroup/Southstreet
+Atomic Design Patterns or smashing http://bradfrostweb.com/blog/post/atomic-web-design/ http://coding.smashingmagazine.com/2013/08/02/other-interface-atomic-design-sass/
+Style Prototype? (sparkbox) http://seesparkbox.com/foundry/our_new_responsive_design_deliverable_the_style_prototype
+jetstrap, divshot (after Bootstrap and Foundation) https://jetstrap.com/ http://www.divshot.com/
+Cloud Four Blog: EMS have it http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+AppendAroud https://github.com/filamentgroup/AppendAround
+window.matchMedia + Paul Irish polyfill https://developer.mozilla.org/en-US/docs/Web/API/Window.matchMedia https://github.com/paulirish/matchMedia.js/
+enquire.js http://wicky.nillia.ms/enquire.js/
+Conditional CSS (adactio.com)  http://adactio.com/journal/5429/
+@media all and (min-width: 50em) {
+body:after {
+content: “widescreen”;
+display: none;
+}
+}
+var size = window.getComputedStyle(document.body,':after').getPropertyValue('content');
+if (size == 'widescreen') {
+// Load some more content.
+}
+
+@media all and (min-width: 50em) {
+.container {
+background: url(img/big-bg.png);
+}
+}
+
+
+img {
+max-width: 100%;
+height: auto;
+}
+Look into picture tag http://www.w3.org/TR/html-picture-element/
+PICTURE
+<picture width="500" height="500">
+<source media="(min-width: 45em)" src="large.jpg">
+<source media="(min-width: 18em)" src="med.jpg">
+<source src="small.jpg">
+<img src="small.jpg" alt="">
+<p>Accessible text</p>
+</picture>
+
+PICTURE REFILL (no link)
+<div data-picture data-alt=”Alt text”>
+<div data-media="(min-width: 45em)" datasrc="
+large.jpg">
+<div data-media="(min-width: 18em)" src="med.jpg">
+<noscript>
+<img src="small.jpg" alt="Alt Text">
+</noscript>
+</div>
+
+
+THE RIGHT WAY TO DO A GALLERY (according to BFrost)
+<div id="product-img" class="product-img">
+<figure class="img-container" id="img-container">
+<img src="images/product_img_1.jpg" alt="Super Ffly Tshirt"
+/>
+</figure>
+<nav>
+<ul>
+<li><a href="images/product_img_1.jpg"><img src="images/
+product_img_1_thumb.jpg" alt="Super Ffly Men's Shirt" /></a></li>
+<li><a href="images/product_img_2.jpg"><img src="images/
+product_img_2_thumb.jpg" alt="Super Ffly Women's Shirt" /></a></
+li>
+<li><a href="images/product_img_3.png"><img src="images/
+product_img_3_thumb.jpg" alt="Super Ffly Closeup" /></a></li>
+</ul>
+</nav>
+</div>
+
+function buildGallery() {
+container.html('<div id="img-list"><ul /></div>');
+imgList = $('#img-list');
+nav.find('a:first').addClass('active');
+//For Each Navigation Link
+nav.find('a').each(function() {
+var $this = $(this);
+var href = $this.attr('href');
+//Prepare list item with image source in data attribute
+arr += '<li data-imgsrc="'+href+'"></li>';
+});
+//Append to #img-list
+imgList.find('ul').append(arr);
+//Nav Thumbnail Click
+nav.on('click', 'a', function(e) {
+var pos = $(this).parent().index();
+e.preventDefault();
+loadImg(pos);
+if(swipeEnabled) {
+mySwipe.slide(index, 300);
+}
+updateNav(pos);
+});
+}
+
+Modernizr.load({
+test: Modernizr.touch && Modernizr.csstransitions,
+yep: 'js/swipe.js',
+complete: function() {
+if (w.Swipe) {
+swipeEnabled = true;
+buildSwipe();
+}
+}
+});
+//Build Swipe Carousel
+function buildSwipe() {
+//Initialize Swipe.js
+w.mySwipe = new Swipe(document.getElementById('img-list'), {
+callback: function(event, index, elem) {
+updateNav(index);
+loadImg(index + 1);
+}
+});
+
+mobilewebbestpractices.com/resources http://mobilewebbestpractices.com/resources/
+wtfmobileweb.com http://wtfmobileweb.com/
+<===

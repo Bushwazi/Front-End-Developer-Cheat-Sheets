@@ -1,0 +1,98 @@
+Professional Growth Track: {
+	Goals: {
+		1) Get better at what I do: frontend
+			1: javascript core
+				Goal: get beyond your dependance on jQuery
+				--> Read: Oreilly.JavaScript.The.Definitive.Guide.6th.Edition.Apr.2011.pdf
+					Status: in progress
+				--> Read: jQuery_Cookbook.epub
+					Status: started, no notes
+				--> Do: Lynda.com JavaScript and AJAX
+				--> Node.js?
+				--> Introduce myself to another library:
+					Angular.js, etc...
+			2: HTML5: canvas, WebGL
+				Goal: look into the future where canvas will reign
+				--> Read: Canvas_Pocket_Reference.epub
+					Status: read, need to write notes
+				--> Read: HTML5_Hacks.pdf
+					Status: read, need to create notes
+				--> Read: HTML5_Cookbook.pdf
+					Status: none
+				--> Read: Head_First_HTML5_Programming.pdf
+					Status: none
+				--> Scan: http://www.html5rocks.com/en/tutorials/
+					Status: on going
+				--> Read: http://learn.shayhowe.com/advanced-html-css/
+					Status: on going
+			3: Mobile Web
+				Goal: learn more about building websites for mobile instead of just desktop websites that look good on mobile
+				--> Read: Programming_the_Mobile_Web.epub
+					Status: none		
+		2) Get into what completes a "web developer": backend
+			1: LAMP Stack
+				Goal: Understand the basics of maintaining a server and how to tie a site together. Focus on Linux and MySQL
+				* Fred has me completing this in April
+				Get more into command line ==>
+					--> Read: Take_Control_of_the_Mac_Command_Line_with_Terminal.epub
+						Status: read, working thru notes
+					--> Learn nano or vim
+						Status: nano is covered in the above book.
+				LINUX ==>
+					--> Do: Lynda.com Up and Running with Linux for PHP Developers
+						Status: completed
+				APACHE ==>
+					--> Undefined
+				MySQL ==>
+					--> Do: Lynda.com PHP with MySQL Essential Training
+						Status: started
+					--> Watch:  https://www.udemy.com/mysql-database-for-beginners2/
+						Status: fuck Udemy
+				PHP ==>
+					--> Do: Lynda.com PHP with MySQL Beyond the Basics
+						Status: none
+					--> Do: Lunda.com Debugging PHP: Advanced Techniques
+						Status: none
+					--> Do: Lynda.com Object-Oriented Programming with PHP
+						Status: none
+			2: Frameworks
+				Goal: build a site with users and relationships
+				--> Build: Code Igniter site
+					Status: none
+				--> Build: Laravel Site
+					Status: none
+		3) Get into something that makes me special: mobile
+			1: Learn iOs
+				Goal: create a iOs app from scratch and get it published
+				* Fred has me starting this in July
+				* Fred has me creating a basic app in August
+				--> Do: (TutsPlus: Learn iOS SDK From Scratch) http://mobile.tutsplus.com/tutorials/iphone/learning-c-a-primer/
+					Status: completed
+				--> Read: (C Programming) http://pelusa.fis.cinvestav.mx/tmatos/LaSumA/LaSumA2_archivos/Supercomputo/The_C_Programming_Language.pdf
+					Status: in progress
+				--> Read: (Apple's Objective C) http://developer.apple.com/library/mac/#referencelibrary/GettingStarted/Learning_Objective-C_A_Primer/index.html
+					Status: none
+				--> Read: iPhone_App_Development_The_Missing_Manual.epub
+					Status: none
+				--> Do: lynda.com Objective-C Essential Training 
+					Status: none
+					* Fred has me beginning this in June
+				--> Read: head_first_c.pdf
+					Status: in progress
+			2: Get comfortable with Phone Gap
+				Goal: build a Phone Gap app and get it published across multiple platforms
+				* Fred has me doing this in May
+				* Fred has me Prototyping this with jQuery Mobile or Sancha in June
+				--> Do: Lynda.com Up and Running with PhoneGap 
+					Status: none
+			3: Facebook Apps or other social media
+				Goal: build a facebook app from scratch that ties in Open Graph
+					Status: none
+			4: Learn Android: java
+				Goal: learn the basics of java development
+					Status: back burner
+			5: Learn Windows Mobile
+				Goal: learn the basics of windows mobile development
+					Status: back burner
+	}
+}

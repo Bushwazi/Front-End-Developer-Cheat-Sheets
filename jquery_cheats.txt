@@ -1,0 +1,48 @@
+$(function(){
+  // the doc ready "shorthand"
+  // jQuery function automatically waits for dom to load...
+  // same as $(document).ready(function(){});
+});
+
+.first() = :first = :first-child = :nth-child(1) =
+.eq(0) = zero based selector
+.next() & .prev()
+.closest() vs .parents()
+
+(function(){
+  // will fire on page load, js best practice, makes the variables inside it local instead of global
+  // 'self invoking anonymous function'
+})();
+
+HTML5, you can custom attribute as long as it begins with data- like <p data-jason="farts"></p> and then use .data('jason') returns 'farts'
+
+.end() jumps back out to the original selector once you get deeper with children, etc
+
+.click() refers to: .on('click', function(){}) so think about using that instead
+
+check out <dl>, refresh on it's uses
+
+don't forget menu li, nav a
+
+:nth-list-child()
+
+.filter()
+
+$('parent').on('mouseenter', 'child', function(){
+  // this will attach listener to the parent, but use the child as $(this)   !
+})
+
+use .on instead of bind, live, delegate
+
+add content using append, prepend, .before(), .insertBefore(), .after(), insertAfter()
+
+$('<h2></h2>', {
+  text: 'Hello World',
+  class: 'textone' 
+}).insertAfter('h1') actually creates a h2 with attributes and location
+
+$(existing element).appendTo('#container') will move the existing tag!
+
+var $this = $(this); // use this anytime you use $(this) more that once
+
+Object.getPrototypeOf(objName)   : to inspect an object’s prototype reference

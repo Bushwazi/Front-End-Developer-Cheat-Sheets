@@ -1,0 +1,329 @@
+/*=========>
+	CSS ARROW
+		~> the only border you don't define is the one that is the direction the arrow will point
+		~> this example will create an arrow pointing up
+<==========*/
+.css-arrows {
+	width:0;
+	height:0;
+	border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #f00;
+}
+/*=========>
+	ABSOLUTELY CENTER
+<==========*/
+.ab-center {
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+/*=========>
+	BORDER RADIUS
+<==========*/
+.border-radius {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+} 
+/*=========>
+	BOX SIZING
+<==========*/
+.box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/*=========>
+	BOX SHADOW
+		box-shadow:[inset] top left blur distance color;
+<==========*/
+.box-shadow {
+	-moz-box-shadow: inset 2px 2px 2px 0 #333;
+	-webkit-box-shadow: inset 2px 2px 2px 0 #333;
+	box-shadow: inset 2px 2px 2px 0 #333;
+}
+/*=========>
+	CSS COLUMNS
+<==========*/
+.columns {
+	-webkit-column-count: $1;
+	-webkit-column-gap:   $2;  
+	-moz-column-count:    $1;
+	-moz-column-gap:      $2;
+	column-count:         $1;
+	column-gap:           $2;
+}
+/*=========>
+	MICRO CLEAR FIX
+
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+<==========*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+/*=========>
+	DEVICE SIZE STYLES
+	    * Apple iPhone/iTouch :: 320 x 480
+	    * Samsung Galaxy S Phone (smaller) :: 480 x 800
+	    * Samsung Galaxy S Phone (larger) :: 480 x 800
+	    * Samsung 4G :: 480 x 800
+	    * Motorola Droid RAZR :: 540 x 960 (?)
+	    * Nook Color :: 600 x 1024
+	    * Samsung Galaxy Tab :: 600 x 1024
+	    * Amazon Kindle Fire :: 600 x 1024
+	    * Apple iPad :: 768 x 1024
+<==========*/
+
+
+
+/*=========>
+	RETINA MEDIA QUERY
+<==========*/
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+        /* Retina-specific stuff here */
+}
+
+/*=========>
+	HIDE TEXT WITHOUT HUGE NEGATIVE TEXT INDENT
+<==========*/
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/*=========>
+	CROSS BROWSER OPACITY
+<==========*/
+.opacity {
+	opacity:1.0; /* 0.0 to 1.0 */
+	filter: alpha(opacity=100); /* IE8 and lower: 0 - 100 */
+	/* OR */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity:0;
+}
+/*=========>
+	CREATE HTML LAYER for position fixed
+<==========*/
+.layer {
+	position:fixed;
+	-webkit-transform: translateZ(0);
+	/* This will make it a layer instead of constantly being painted */
+}
+
+
+
+/*=========>
+CSS Selectors to learn: http://hub.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+    X ~ Y --> like X + Y except less strict, will select any Y that follows an X
+    X[href="foo"] --> strict version. must match perfect
+    X[href*="nettuts"] --> broad version. any href with "nettuts" in it at any point
+    X[href^="http"] --> href must start with "http"
+    X[href$=".jpg"] --> href must end with ".jpg"
+    a[data-filetype="image"] --> use custom attributes, not sure why this is better than a class
+    X[foo~="bar"] --> a[data-info~="external"] --> the tilda will look for a match even when the attribute has a space: data-info="external image"
+    X[foo|="bar"] --> like the tilda one, except works with dashes instead of spaces
+    X:not(selector) --> IE9+ :(
+    X::pseudoElement --> p::first-line p::first-paragraph
+    X:nth-child(n) --> IE9+
+    X:nth-last-child(n) --> starts from the last item : IE9+
+    X:nth-of-type(n) --> ul:nth-of-type(6)
+    X:nth-last-of-type(n)
+    X:only-child --> ul li:only-child will select li when it is the only child of an ul
+    X:only-of-type --> li:only-of-type will select an li when it has no siblings
+    X:first-of-type
+
+<==========*/
+
+/*=========>
+	CSS TRANSITION *but transform is less costly
+<==========*/
+.transition {
+	-webkit-transition:$1 $2 $3 $4;
+	-moz-transition:$1 $2 $3 $4;
+	-o-transition:$1 $2 $3 $4;
+	transition:$1 $2 $3 $4;
+	-webkit-transform: translate3d(0,0,0); /* Fixes trails in Chrome */
+}
+/*
+linear                                                                ==> Specifies a transition effect with the same speed from start to end (equivalent to cubic-bezier(0,0,1,1))
+ease                                                                         ==> Specifies a transition effect with a slow start, then fast, then end slowly (equivalent to cubic-bezier(0.25,0.1,0.25,1))
+ease-in                                 ==> Specifies a transition effect with a slow start (equivalent to cubic-bezier(0.42,0,1,1))
+ease-out                                                         ==>        Specifies a transition effect with a slow end (equivalent to cubic-bezier(0,0,0.58,1))
+ease-in-out                                         ==>        Specifies a transition effect with a slow start and end (equivalent to cubic-bezier(0.42,0,0.58,1))
+cubic-bezier(n,n,n,n)        ==> Define your own values in the cubic-bezier function. Possible values are numeric values from 0 to 1
+*/
+
+
+/*=========>
+	CSS 2d transforms
+<==========*/
+2d-transform {
+	-ms-transform: rotate(0deg); /* IE 9 */
+	-webkit-transform: rotate(0deg); /* Safari and Chrome */
+	-o-transform: rotate(0deg); /* Opera */
+	-moz-transform: rotate(0deg); /* Firefox */
+	transform: rotate(0deg);
+}
+/*
+matrix(n,n,n,n,n,n)         Defines a 2D transformation, using a matrix of six values
+translate(x,y)         Defines a 2D translation, moving the element along the X- and the Y-axis
+translateX(n)         Defines a 2D translation, moving the element along the X-axis
+translateY(n)         Defines a 2D translation, moving the element along the Y-axis
+scale(x,y)         Defines a 2D scale transformation, changing the elements width and height
+scaleX(n)         Defines a 2D scale transformation, changing the element's width
+scaleY(n)         Defines a 2D scale transformation, changing the element's height
+rotate(angle)         Defines a 2D rotation, the angle is specified in the parameter
+skew(x-angle,y-angle)         Defines a 2D skew transformation along the X- and the Y-axis
+skewX(angle)         Defines a 2D skew transformation along the X-axis
+skewY(angle)         Defines a 2D skew transformation along the Y-axis
+*/
+
+/*=========>
+	HARDWARE ACCELERATION
+<==========*/
+.container {
+    -webkit-transform: translateZ(0);
+    /* -webkit-transform: translate3d(0,0,0); */
+    /* Do not apply this to the body tag */
+}
+
+
+/*=========>
+	META VIEWPORT
+
+		<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi">
+<==========*/
+
+
+PRELOAD IMAGES
+
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function(){
+        $('<img/>')[0].src = this;
+        // Alternatively you could use:
+        // (new Image()).src = this;
+    });
+}
+
+// Usage:
+
+preload([
+    'img/imageName.jpg',
+    'img/anotherOne.jpg',
+    'img/blahblahblah.jpg'
+]);
+
+
+ZEND CSS
+
+color:transparent;                             c:t
+color:rgb();                                   c:r
+color:rgba();                                  c:ra
+color:hsl();                                   c:h
+color:hsla();                                  c:ha
+ 
+text-overflow:;                                tov
+text-overflow:"";                              tov+
+text-overflow:clip;                            tov:c
+text-overflow:ellipsis;                        tov:e
+ 
+box-decoration-break:clone;                    bxdb (the only non-default option)
+box-decoration-break:slice;                    bxdb:s
+ 
+transition:                                    ts
+transition-property:;                          tsp
+transition-duration:;                          tsd
+transition-delay:;                             tsdl
+transition-timing-function:;                   tst
+transition-timing-function:ease;               tst:e
+transition-timing-function:linear;             tst:l
+transition-timing-function:ease-in;            tst:i
+transition-timing-function:ease-out;           tst:o
+transition-timing-function:ease-in-out;        tst:io
+transition-timing-function:step-start;         tst:ss
+transition-timing-function:step-end;           tst:se
+transition-timing-function:steps();            tst:s
+transition-timing-function:cubic-bezier();     tst:cb
+
+direction                                      dir
+direction:ltr                                  dir:l
+direction:rtl                                  dir:r
+
+@page {}                                       @p
+@top-left-corner {}                            @tlc
+@top-left {}                                   @tl
+@top-center {}                                 @tc
+@top-right {}                                  @tr
+@top-right-corner {}                           @trc
+@bottom-left-corner {}                         @blc
+@bottom-left {}                                @bl
+@bottom-center {}                              @bc
+@bottom-right {}                               @br
+@bottom-right-corner {}                        @brc
+@footnote {}                                   @fn
+@counter-style   ""                            @cs
+
+
+ZEND HTML
+
+HTML:
+jq      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+cc:ie8  <!--[if gte IE 8]><![endif]-->
+cc:ie9  <!--[if gte IE 9]><![endif]-->
+
+CSS:
+@md     @-moz-document url-prefix() {}
+
+Expand Abbreviation             Ctrl+Cmd+=
+Wrap with Abbreviation          Ctrl+H
+Re_flect CSS Value              Ctrl+R
+
+Balance Tag Outward             Alt+[
+Balance Tag Inward              Alt+]
+Next Edit Point                 Ctrl+Alt+Right
+Previous Edit Point             Ctrl+Alt+Left
+Go to Matching Pair             Alt+/
+Select Next Item                Alt+Right
+Select Previous Item            Alt+Left
+
+Insert Formatted Newline        Ctrl+Enter
+Select Line                     Ctrl+K
+Merge Lines                     Ctrl+\
+Toggle Comment                  Ctrl+/
+Split/Join Tag                  Ctrl+Shift+\
+Rename Tag                      Ctrl+Shift+B
+Remove Tag                      Alt+-
+Evaluate Math Expression        Alt+=
+
+Increment number by 1           Ctrl+Up
+Decrement number by 1           Ctrl+Down
+Increment number by 10          Ctrl+Alt+Up
+Decrement number by 10          Ctrl+Alt+Down
+Increment number by 0.1         Alt+Up
+Decrement number by 0.1         Alt+Down

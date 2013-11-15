@@ -1,0 +1,28 @@
+https://www.youtube.com/watch?v=bqfoYaKCYUI
+
+Paul Irish's Workflow: {
+	Workspaces in Chrome
+		Sublime -> has MarkDown in there too?
+		MarkDown -> Open in Chrome
+		Sass -> via Chrome + watch deamon
+}
+Bower Package management:
+	Google I/O Talk
+	
+Flamechart inside Profiles
+
+letsfreecongrees.org
+
+Rebecca "A Baseline for Front-End Developers"
+
+CLASS LIST!
+	--> https://hacks.mozilla.org/2012/01/hidden-gems-of-html5-classlist/
+element.classList.add('foo') adds the class foo to the element (if it already exists it does nothing)
+element.classList.remove('foo') removes the class foo from the element
+element.classList.toggle('foo') alternatively adds and removes the class foo from the element
+element.classList.contains('foo') returns if the class is applied to the element or not
+element.classList.toString() returns all the classes as a string (same as reading out className)
+
+
+FOR PAINTING:
+	Use -webkit-transform: translateZ(0); with position:fixed;

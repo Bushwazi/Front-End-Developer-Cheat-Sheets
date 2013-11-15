@@ -1,0 +1,20 @@
+console.log(console);
+==> learn about all the features and methods of console, like console.assert() which will test
+
+
+Sources panel will let you update and save changes
+
+You can use bling to query in console
+$("#date")
+but bling can be overwritten by jQuery
+then return the first one in the array
+$("#date")[0]
+
+inspect($("#date")[0]);
+will select it in elements panel
+
+$0 will return last query, $1 back 2 queries
+
+Use google closure for compression
+
+<script async script=""></script>

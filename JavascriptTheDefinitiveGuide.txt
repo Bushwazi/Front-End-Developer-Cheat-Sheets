@@ -1,0 +1,396 @@
+CHAPTER 1 ==============>>>>>>>>>>>>>
+1.1
+initializer expression: the brackets of an array or curly brackets of an object
+1.2
+* see 1.2.1.html
+
+CHAPTER 2 ==============>>>>>>>>>>>>>
+LEXICAL STRUCTURE: the set of elementary rules that specifies how you write programs in that language
+2.1
+var sí = true;
+var π = 3.14;
+RESERVED WORDS:
+break 		delete 	function 	return 	typeof
+case 		do 		if 			switch 	var
+catch 		else 	in 			this 	void
+continue 	false 	instanceof 	throw 	while
+debugger 	finally new 		true 	with
+default 	for 	null 		try
+* there are many more per version of Ecmascript
+CHAPTER 3 ==============>>>>>>>>>>>>>
+PRIMITIVE TYPES: include numbers, strings, and Boolean values; null and undefined
+OBJECT TYPES: anything that is not a primitive; a collection of properties where each property has a name and a value (either a primitive value, such as a number or string, or an object)
+MUTABLE: can change (objects, arrays)
+IMMUTABLE: cannot change (Numbers, booleans, null, and undefined, strings)
+
+MATH!
+Math.pow(2,53) 				// => 9007199254740992: 2 to the power 53
+Math.round(.6) 				// => 1.0: round to the nearest integer
+Math.ceil(.6) 				// => 1.0: round up to an integer
+Math.floor(.6) 				// => 0.0: round down to an integer
+Math.abs(-5) 				// => 5: absolute value
+Math.max(x,y,z) 			// Return the largest argument
+Math.min(x,y,z) 			// Return the smallest argument
+Math.random() 				// Pseudo-random number x where 0 <= x < 1.0
+Math.PI 					// π: circumference of a circle / diameter
+Math.E 						// e: The base of the natural logarithm
+Math.sqrt(3) 				// The square root of 3
+Math.pow(3, 1/3) 			// The cube root of 3
+Math.sin(0) 				// Trigonometry: also Math.cos, Math.atan, etc.
+Math.log(10) 				// Natural logarithm of 10
+Math.log(100)/Math.LN10 	// Base 10 logarithm of 100
+Math.log(512)/Math.LN2 		// Base 2 logarithm of 512
+Math.exp(3) 				// Math.E cubed
+
+\Escape Sequence
+\0 The NUL character (\u0000)
+\b Backspace (\u0008)
+\t Horizontal tab (\u0009)
+\n Newline (\u000A)
+\v Vertical tab (\u000B)
+\f Form feed (\u000C)
+\r Carriage return (\u000D)
+\" Double quote (\u0022)
+\' Apostrophe or single quote (\u0027)
+\\ Backslash (\u005C)
+\x XX The Latin-1 character specified by the two hexadecimal digits XX
+\u XXXX The Unicode character specified by the four hexadecimal digits XXXX
+
+Strings
+var s = "hello, world" 	// Start with some text.
+s.length				// => 12
+s.charAt(0) 			// => "h": the first character.
+s.charAt(s.length-1) 	// => "d": the last character.
+s.substring(1,4) 		// => "ell": the 2nd, 3rd and 4th characters.
+s.slice(1,4) 			// => "ell": same thing
+s.slice(-3) 			// => "rld": last 3 characters
+s.indexOf("l") 			// => 2: position of first letter l.
+s.lastIndexOf("l") 		// => 10: position of last letter l.
+s.indexOf("l", 3) 		// => 3: position of first "l" at or after 3
+s.split(", ") 			// => ["hello", "world"] split into substrings
+s.replace("h", "H") 	// => "Hello, world": replaces all instances
+s.toUpperCase() 		// => "HELLO, WORLD"
+s[0] 					// => "h"
+s[s.length-1] 			// => "d"
+
+RegExp()
+/^HTML/ 			// Match the letters H T M L at the start of a string
+/[1-9][0-9]*/ 		// Match a non-zero digit, followed by any # of digits
+/\bjavascript\b/i 	// Match "javascript" as a word, case-insensitive
+var text = "testing: 1, 2, 3"; 	// Sample text
+var pattern = /\d+/g 			// Matches all instances of one or more digits
+pattern.test(text) 				// => true: a match exists
+text.search(pattern) 			// => 9: position of first match
+text.match(pattern) 			// => ["1", "2", "3"]: array of all matches
+text.replace(pattern, "#"); 	// => "testing: #, #, #"
+text.split(/\D+/); 				// => ["","1","2","3"]: split on non-digits
+
+The Global Object:
+basically the javascript object, it houses all the default properties and methods in js. In client side js, Window serves as Global.
+
+Wrapper Objects:
+Temporary objects that are created to access properties on read-only non-objects like strings, numbers and booleans. After the property is returned, the Wrapper is destroyed.
+
+Explicit Conversions:
+Number("3") 	// => 3
+String(false) 	// => "false" Or use false.toString()
+Boolean([]) 	// => true
+Object(3) 		// => new Number(3)
+
+Convert Number to String Rules:
+var n = 123456.789;
+n.toFixed(0); 		// "123457"
+n.toFixed(2); 		// "123456.79"
+n.toFixed(5); 		// "123456.78900"
+n.toExponential(1); // "1.2e+5"
+n.toExponential(3); // "1.235e+5"
+n.toPrecision(4); 	// "1.235e+5"
+n.toPrecision(7); 	// "123456.8"
+n.toPrecision(10); 	// "123456.7890"
+
+Convert String to Number:
+parseInt("3 blind mice") 	// => 3
+parseFloat(" 3.14 meters") 	// => 3.14
+parseInt("-12.34") 			// => -12
+parseInt("0xFF") 			// => 255
+parseInt("0xff") 			// => 255
+parseInt("-0XFF") 			// => -255
+parseFloat(".1") 			// => 0.1
+parseInt("0.1") 			// => 0
+parseInt(".1") 				// => NaN: integers can't start with "."
+parseFloat("$72.47"); 		// => NaN: numbers can't start with "$"
+
+.toString() ==> what it returns depends on the type it is used on 
+
+.valueOf() is supposed to convert an object to a primitive value that represents the
+object, if any such primitive value exists. In most cases, it will return the object itself because objects usually can't be represented as a primitive.
+
+SCOPE:
+function scope: a variable is available only inside the function that initializes it
+
+hoisting: a variable inside a function is hoisted to the top and available immediately, because all variables declared within a function are visible throughout the body of the function. This in turn will block a global with the same name, even before the local variable is declared.
+
+scope chain: every time a var is called, it is linked back up to the global. Every time a variable is looked up (variable resolution), js works down the chain looking for that var
+
+CHAPTER 4 ==============>>>>>>>>>>>>>
+Expressions: a phrase of JavaScript that a JavaScript interpreter can evaluate to produce a value. Like a primitive or variable OR object/array initializers, function definition, property access expressions (object.property / object[property]), invocation, object creation
+
+Operators: combines the values of its operands (usually two of them) in some way and evaluates to a new value. Like * + - /
+lvalue or lval is a historical term that means “an expression that can legally appear on the left side of an assignment expression.”
+
+Operator 		Operation 							A N Types
+++ 				Pre- or post-increment 				R 1 lval→num
+-- 				Pre- or post-decrement 				R 1 lval→num
+- 				Negate number 						R 1 num→num
++ 				Convert to number 					R 1 num→num
+~ 				Invert bits 						R 1 int→int
+! 				Invert boolean value 				R 1 bool→bool
+delete 			Remove a property 					R 1 lval→bool
+typeof 			Determine type of operand 			R 1 any→str
+void 			Return undefined value 				R 1 any→undef
+*, /, % 		Multiply, divide, remainder 		L 2 num,num→num
++, - 			Add, subtract 						L 2 num,num→num
++ 				Concatenate strings 				L 2 str,str→str
+<< 				Shift left 							L 2 int,int→int
+>> 				Shift right with sign extension 	L 2 int,int→int
+>>> 			Shift right with zero extension 	L 2 int,int→int
+<, <=,>, >= 	Compare in numeric order 			L 2 num,num→bool
+<, <=,>, >= 	Compare in alphabetic order 		L 2 str,str→bool
+instanceof 		Test object class 					L 2 obj,func→bool
+in 				Test whether property exists 		L 2 str,obj→bool
+== 				Test for equality 					L 2 any,any→bool
+!= 				Test for inequality 				L 2 any,any→bool
+=== 			Test for strict equality 			L 2 any,any→bool
+!== 			Test for strict inequality 			L 2 any,any→bool
+& 				Compute bitwise AND 				L 2 int,int→int
+^ 				Compute bitwise XOR 				L 2 int,int→int
+| 				Compute bitwise OR 					L 2 int,int→int
+&& 				Compute logical AND 				L 2 any,any→any
+|| 				Compute logical OR 					L 2 any,any→any
+?: 				Choose 2nd or 3rd operand 			R 3 bool,any,any→any
+= 				Assign to a variable or property 	R 2 lval,any→any
+*=, /=, %=, +=, Operate and assign 					R 2 lval,any→any
+-=, &=, ^=, |=,
+<<=, >>=, >>>=
+, 				Discard 1st operand, return second 	L 2 any,any→any
+
+Unary: modify a single operand to produce a new value, counter++; -count;
++ when used with a string will try to convert to a number, when used with a number, it will do nothing
+
+& | ^ ~ << >> >>>
+^ : "exclusive or" ==> if either is true, but not both
+
+in : 
+var point = { x:1, y:1 }; 	// Define an object
+"x" in point 				// => true: object has property named "x"
+"z" in point 				// => false: object has no "z" property.
+"toString" in point 		// => true: object inherits toString method
+
+var data = [7,8,9]; 		// An array with elements 0, 1, and 2
+"0" in data 				// => true: array has an element "0"
+1 in data 					// => true: numbers are converted to strings
+3 in data 					// => false: no element 3
+
+instanceof:
+var d = new Date(); 	// Create a new object with the Date() constructor
+d instanceof Date; 		// Evaluates to true; d was created with Date()
+d instanceof Object; 	// Evaluates to true; all objects are instances of Object
+d instanceof Number; 	// Evaluates to false; d is not a Number object
+var a = [1, 2, 3]; 		// Create an array with array literal syntax
+a instanceof Array; 	// Evaluates to true; a is an array
+a instanceof Object; 	// Evaluates to true; all arrays are objects
+a instanceof RegExp; 	// Evaluates to false; arrays are not regular expressions
+
+PROTOTYPE CHAIN ==> JavaScript’s inheritance mechanism. Basically, js will climb the class chain up to check instaneof
+
+LOGICAL EXPRESSIONS
+You can use && to return values. If the left is truthy, then this version will return the right value
+var o = { x : 1 };
+var p = null;
+o && o.x 		// => 1: o is truthy, so return value of o.x
+p && p.x 		// => null: p is falsy, so return it and don't evaluate p.x
+so, the these two lines are equivelent. This technique is called "short circuiting"
+if (a == b) stop(); // Invoke stop() only if a == b
+(a == b) && stop(); // This does the same thing
+
+// If max_width is defined, use that. Otherwise look for a value in
+// the preferences object. If that is not defined use a hard-coded constant.
+var max = max_width || preferences.max_width || 500;
+
+var a = b = c = 0;
+will initialize three variables equal to 0;
+
+Operator 	Example 	Equivalent
++= 			a += b 		a = a + b
+-= 			a -= b 		a = a - b
+*= 			a *= b 		a = a * b
+/= 			a /= b 		a = a / b
+%= 			a %= b 		a = a % b
+<<= 		a <<= b 	a = a << b
+>>= 		a >>= b 	a = a >> b
+>>>= 		a >>>= b 	a = a >>> b
+&= 			a &= b 		a = a & b
+|= 			a |= b 		a = a | b
+^= 			a ^= b 		a = a ^ b
+
+eval(); ==> interpret strings of Javascript source code, evaluating them to produce a value
+eval("3+2") // => 5
+
+The Conditional Operator (?:) aka ternary operator
+	x > 0 ? x : -x // The absolute value of x
+
+typeof x
+
+delete
+var o = { x: 1, y: 2}; 	// Start with an object
+delete o.x; 			// Delete one of its properties
+"x" in o 				// => false: the property does not exist anymore
+
+var a = [1,2,3];		// Start with an array
+delete a[2]; 			// Delete the last element of the array
+a.length 				// => 2: array only has two elements now
+
+void
+	<a href="javascript:void window.open();">Open New Window</a>
+
+
+CHAPTER 5 ==============>>>>>>>>>>>>>
+STATEMENTS: executed to make something happen.
+Conditionals: if switch
+Loops: while for
+Jumps: break return throw
+
+conditionals:
+	if ...
+	switch: you can use return instead of break
+
+loops:
+	while => while truthy, do this
+		while(expression) {
+			statement
+		}
+	do/while => same as while, except it will always execute atleast once because the test is after the statement. *must end with semicolon
+		do {
+			statement
+		} while (expression);
+	for
+		for(initialize ; test ; increment)
+			statement
+		for(;;) => an infinite loop
+	for/in
+		for (variable in object)
+			statement
+		* this will copy an object into an array
+			var o = {x:1, y:2, z:3};
+			var a = [], i = 0;
+			for(a[i++] in o) /* empty */;
+
+jumps:
+	break: makes the interpreter jump to the end of a loop or other statement
+		* when used within a labeled statement, it can close that statement, no matter how deep it is embedded
+	continue: makes the interpreter skip the rest of the body of a loop and jump back to the top of a loop to begin a new iteration
+		* same label rules as break
+	return: makes the interpreter jump from a function invocation back to the code that invoked it and also supplies the value for the invocation
+	throw: raises, or “throws,” an exception and is designed to work with the try/catch/ finally statement, which establishes a block of exception handling code. This is a complicated kind of jump statement: when an exception is thrown, the interpreter jumps to the nearest enclosing exception handler, which may be in the same function or up the call stack in an invoking function
+	try/catch/finally: js' exception handling mechanism
+	try {
+		// Normally, this code runs from the top of the block to the bottom
+		// without problems. But it can sometimes throw an exception,
+		// either directly, with a throw statement, or indirectly, by calling
+		// a method that throws an exception.
+	}
+	catch (e) {
+		// The statements in this block are executed if, and only if, the try
+		// block throws an exception. These statements can use the local variable
+		// e to refer to the Error object or other value that was thrown.
+		// This block may handle the exception somehow, may ignore the
+		// exception by doing nothing, or may rethrow the exception with throw.
+	}
+	finally {
+		// This block contains statements that are always executed, regardless of
+		// what happens in the try block. They are executed whether the try
+		// block terminates:
+		// 1) normally, after reaching the bottom of the block
+		// 2) because of a break, continue, or return statement
+		// 3) with an exception that is handled by a catch clause above
+		// 4) with an uncaught exception that is still propagating
+	}
+	
+	// Simulate for( initialize ; test ; increment ) body;
+	initialize ;
+	while( test ) {
+		try { body ; }
+		finally { increment ; }
+	}
+	
+	Labeled Statements:
+		Any statement may be labeled by preceding it with an identifier and a colon:
+		identifier: statement
+		* the label only works with break & continue
+		mainloop: while(token != null) {
+			// Code omitted...
+			continue mainloop; // Jump to the next iteration of the named loop
+			// More code omitted...
+		}
+misc:
+	with: used to temporarily extend the scope chain
+		// This statement adds object to the front of the scope chain, executes statement, and then restores the scope chain to its original state.
+		with (object)
+			statement
+		* forbidden in strict mode
+	debugger: acts as a breakpoint
+	"use strict": sets up the script to run in strict mode
+		* no with statement
+		* all variables must be declared
+		* functions invoked as functions (rather than as methods) have a this value of undefined
+		* assignments to nonwritable properties and attempts to create new properties on nonextensible objects throw a TypeError
+		* eval has it's own scope
+		....
+
+CHAPTER 6 ==============>>>>>>>>>>>>>		
+OBJECTS!
+creating objects:
+	object literals
+		var myObject = {
+			"prop1": value,
+			x: 69
+		};
+	using new
+		var myObject = new Object();
+	prototyping
+		var myObject = Object.create({"prop1": value, x:69});
+		// create an empty object
+		var o3 = Object.create(Object.prototype); // o3 is like {} or new Object().
+	
+PROTOYPES:
+In JavaScript, each object has a property called “prototype”. An object’s prototype allows us adding properties to all instances of that object (even to the existing instances).
+* so if you create an object and add a bunch those objects, you can then add a property/method to all of them instead of one at a time.
+* this is a way to also create the prototype inheritance chain --> see inheritance_chain.html
+
+* javascript objects are associative arrays (like a dictionary)
+	you can then query using bracket or dot notation, the bonus is, when using bracket notation, the name of the property is a string, so it can be manipulated on the fly:
+		var addr = "";
+		for(i = 0; i < 4; i++) {
+			addr += customer["address" + i] + '\n';
+	which wouldn't work with dot notation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PAGE 122 (140/1098)
